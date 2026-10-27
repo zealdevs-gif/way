@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp</title>
+  
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    min-height: 102px;
+    border-top: 3px solid #08716d;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.20);
+    background: #fff;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-container {
+    max-width: 1240px;
+    min-height: 99px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* BRAND */
+.brand {
+    text-decoration: none;
+    color: #25d366;
+    font-size: 17px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.brand svg {
+    width: 25px;
+    height: 25px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #777;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 13px 22px;
+    transition: 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #50c963;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid #50c963;
+}
+
+/* SIGN UP */
+.signup-btn {
+    border: 2px solid #111;
+    color: #111;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 13px 29px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* MOBILE MENU */
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    min-height: 460px;
+    padding: 64px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-logo {
+    width: 158px;
+    height: 121px;
+    object-fit: contain;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 21px;
+}
+
+.profile-name {
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #252525;
+}
+
+.whatsapp-btn {
+    width: 189px;
+    min-height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #128c7e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 29px;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #075e54;
+    transform: translateY(-2px);
+}
+
+.message {
+    font-size: 23px;
+    color: #4a4a4a;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 65px 20px 55px;
+}
+
+.footer-container {
+    max-width: 1240px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+    gap: 45px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 17px;
+}
+
+.footer-logo svg {
+    width: 31px;
+    height: 31px;
+}
+
+.footer-btn {
+    background: #128c7e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 11px;
+    min-width: 189px;
+    min-height: 61px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+    background: #075e54;
+}
+
+.footer-column h3 {
+    font-size: 22px;
+    margin-bottom: 21px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #ededed;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: 0.25s;
+}
+
+.footer-column a:hover {
+    color: #25d366;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .nav-container {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 25px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 76px;
+    }
+
+    .nav-container {
+        min-height: 73px;
+        padding: 12px 18px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+        color: #222;
+    }
+
+    .signup-btn {
+        padding: 10px 17px;
+        font-size: 13px;
+        margin-left: 5px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        order: 4;
+        background: #fff;
+        padding: 8px 0 14px;
+        border-top: 1px solid #eee;
+    }
+
+    .nav-links a {
+        padding: 13px 10px;
+        font-size: 15px;
+        border-bottom: none !important;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .main-content {
+        min-height: 410px;
+        padding: 52px 18px 55px;
+    }
+
+    .profile-logo {
+        width: 145px;
+        height: 115px;
+        margin-bottom: 20px;
+    }
+
+    .profile-name {
+        font-size: 22px;
+    }
+
+    .whatsapp-btn {
+        width: 180px;
+        min-height: 56px;
+        font-size: 15px;
+    }
+
+    .message {
+        font-size: 19px;
+    }
+
+    .footer {
+        padding: 45px 25px 35px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 22px;
+    }
+
+    .footer-column h3 {
+        font-size: 18px;
+        margin-bottom: 17px;
+    }
+
+    .footer-column a {
+        font-size: 14px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo {
+        font-size: 21px;
+    }
+
+    .footer-btn {
+        min-height: 54px;
+        min-width: 180px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 380px) {
+    .nav-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .brand svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .signup-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="#" class="brand">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.3A8.4 8.4 0 1 1 21 11.5Z"/>
+                <path d="M8.5 8.5c.6 2 2 3.5 4.2 4.3"/>
+            </svg>
+            WhatsApp
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"
+               aria-label="Toggle navigation">&#9776;</label>
+
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#blog">Blog</a>
+            <a href="#download">Download</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+
+        <a href="#signup" class="signup-btn">Sign Up</a>
+
+    </div>
+</header>
+
+<!-- MAIN SECTION -->
+<main class="main-content">
+
+    <!-- Replace balaji-logo.png with your actual logo file -->
+    <img src="wh.webp"
+         alt="Balaji Logo"
+         class="profile-logo">
+
+    <h1 class="profile-name">Way</h1>
+
+    <!-- Replace the phone number with your WhatsApp number -->
+   <a href="https://wa.me/+918819916294"
+       class="whatsapp-btn"
+       target="_blank"
+       rel="noopener noreferrer">
+        Whatsapp Now
+    </a>
+
+   
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.3A8.4 8.4 0 1 1 21 11.5Z"/>
+                    <path d="M8.5 8.5c.6 2 2 3.5 4.2 4.3"/>
+                </svg>
+                WhatsApp
+            </div>
+
+           <a href="https://wa.me/+918819916294"
+               class="footer-btn"
+               target="_blank"
+               rel="noopener noreferrer">
+                Whatsapp Now
+            </a>
+        </div>
+
+        <div class="footer-column" id="download">
+            <h3>What we do</h3>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#business">For Business</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column" id="about">
+            <h3>Who we are</h3>
+            <ul>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#brand">Brand Center</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Use WhatsApp</h3>
+            <ul>
+                <li><a href="#android">Android</a></li>
+                <li><a href="#iphone">iPhone</a></li>
+                <li><a href="#mac">Mac/PC</a></li>
+                <li><a href="#web">WhatsApp Web</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column" id="contact">
+            <h3>Need help?</h3>
+            <ul>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#business">For Business</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
